@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class="dashboard">
         <v-layout>
             <v-navigation-drawer v-model="drawer" :rail="rail" permanent @click="rail = false">
                 <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg" title="John Leider" nav>
@@ -11,8 +11,8 @@
                 <v-divider></v-divider>
 
                 <v-list density="compact" nav>
-                    <v-list-item prepend-icon="mdi-home-city" title="Dashboard" value="Dashboard" link to="/"></v-list-item>
-                    <v-list-item prepend-icon="mdi-account" title="Movie Management" value="movie table" link to="/table"></v-list-item>
+                    <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="Dashboard" link to="/"></v-list-item>
+                    <v-list-item prepend-icon="mdi-movie-cog" title="Movie Management" value="movie table" link to="/table"></v-list-item>
                 </v-list>
             </v-navigation-drawer>
             <v-main style="height: 250px">

@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class="dashboard">
         <v-layout>
             <v-navigation-drawer v-model="drawer" :rail="rail" permanent @click="rail = false">
                 <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg" title="John Leider" nav>
@@ -11,14 +11,17 @@
                 <v-divider></v-divider>
 
                 <v-list density="compact" nav>
-                    <v-list-item prepend-icon="mdi-home-city" title="Dashboard" value="Dashboard" link
+                    <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="Dashboard" link
                         to="/"></v-list-item>
-                    <v-list-item prepend-icon="mdi-account" title="Movie Management" value="movie table" link
+                    <v-list-item prepend-icon="mdi-movie-cog" title="Movie Management" value="movie table" link
                         to="/table"></v-list-item>
                 </v-list>
             </v-navigation-drawer>
-            <v-main style="height: max-content">
-                <v-table>
+            <v-main>
+                <v-container class="head-nav">
+                    <v-img src="../assets/noti-icon.png" class="icon"></v-img>
+                </v-container>
+                <v-table class="table-config">
                     <thead>
                         <tr>
                             <th class="text-left">Name</th>
@@ -37,9 +40,9 @@
                             <td v-if="item.status == 'Visible'" style="color: green">{{ item.status }}</td>
                             <td v-if="item.status == 'Hidden'" style="color: red">{{ item.status }}</td>
                             <td>{{ item.createdDate }}</td>
-                            <td class="d-flex"><v-img src="../assets/eye-icon.png" alt="" style="height: 20px;"></v-img>
-                                <v-img src="../assets/edit-icon.png" alt="" style="height: 20px;"></v-img>
-                                <v-img src="../assets/delete-icon.png" alt="" style="height: 20px;"></v-img>
+                            <td class="d-flex"><v-img src="../assets/eye-icon.png" alt="" class="icon"></v-img>
+                                <v-img src="../assets/edit-icon.png" alt="" class="icon"></v-img>
+                                <v-img src="../assets/delete-icon.png" alt="" class="icon"></v-img>
                             </td>
                         </tr>
                     </tbody>
@@ -51,6 +54,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import '@/assets/table.css';
 
 const drawer = ref(true)
 const rail = ref(true)
