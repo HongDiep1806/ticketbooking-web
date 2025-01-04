@@ -1,0 +1,22 @@
+
+.icon{
+    height: 20px;
+}
+.table-config{
+    margin: 10px;
+    border-radius: 5px;
+    background-color: white;
+}
+.dashboard{
+    background-color: lightgray;
+}
+.table-config tr{
+    margin: 5px;
+    border-radius: 5px;
+}
+.head-nav{
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    align-items: last baseline;
+}
