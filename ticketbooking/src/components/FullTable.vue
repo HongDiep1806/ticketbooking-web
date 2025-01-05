@@ -15,15 +15,14 @@
             <tr v-for="(row, rowIndex) in data" :key="rowIndex">
                 <!-- Loop over each row's data -->
                 <td v-for="(value, colIndex) in row" :key="colIndex" class="text-left">
-                    <!-- Conditional formatting based on label settings -->
                     <span 
-                        v-if="labels[colIndex]?.highlight && labels[colIndex]?.keyGreen === value" 
+                        v-if="labels[colIndex].highlight && labels[colIndex].keyGreen === value" 
                         class="green"
                     >
                         {{ value }}
                     </span>
                     <span 
-                        v-else-if="labels[colIndex]?.highlight && labels[colIndex]?.keyRed === value" 
+                        v-else-if="labels[colIndex].highlight && labels[colIndex].keyRed === value" 
                         class="red"
                     >
                         {{ value }}
@@ -33,9 +32,7 @@
                     </span>
                 </td>
                 <td class="d-flex">
-                    <v-icon icon="mdi-eye-outline" class="icon" />
-                    <v-icon icon="mdi-pencil-outline" class="icon" />
-                    <v-icon icon="mdi-delete-outline" class="icon" />
+                    <ActionIcon :viewIcon="icons.viewIcon" :deleteIcon="icons.deleteIcon" :editIcon="icons.editIcon" /> 
                 </td>
             </tr>
         </tbody>
@@ -45,10 +42,12 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import '@/assets/table.css';
+import ActionIcon from './ActionIcon.vue';
 
 // Props for labels and data
 defineProps<{
     labels: Array<{ title: string, highlight: boolean, keyGreen?: any, keyRed?: any }>;
     data: Array<Array<any>>;
+    icons: { viewIcon: boolean, deleteIcon: boolean, editIcon: boolean }
 }>();
 </script>

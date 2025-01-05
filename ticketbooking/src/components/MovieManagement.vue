@@ -3,10 +3,7 @@
         <v-layout>
             <!-- Navigation Drawer -->
             <v-navigation-drawer v-model="drawer" :rail="rail" permanent @click="rail = false">
-                <v-list-item 
-                    prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg" 
-                    title="John Leider" 
-                    nav>
+                <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg" title="John Leider" nav>
                     <template v-slot:append>
                         <v-btn icon="mdi-chevron-left" variant="text" @click.stop="rail = !rail"></v-btn>
                     </template>
@@ -25,7 +22,7 @@
                 <v-container class="head-nav">
                     <v-img src="../assets/noti-icon.png" class="icon"></v-img>
                 </v-container>
-                <FullTable :labels="labels" :data="data" />
+                <FullTable :labels="labels" :data="data" :icons="icons"/>
             </v-main>
         </v-layout>
     </v-card>
@@ -42,11 +39,11 @@ const rail = ref(true);
 
 // Table labels and data
 const labels = ref([
-    { title: 'Name', highlight: false }, 
-    { title: 'Rating', highlight:false }, 
-    { title: 'Topic', highlight: false }, 
-    { title: 'Status', highlight: true, keyGreen: 'Visible', keyRed: 'Hidden' }, 
-    { title: 'Created Date', highlight: false }, 
+    { title: 'Name', highlight: false },
+    { title: 'Rating', highlight: false },
+    { title: 'Topic', highlight: false },
+    { title: 'Status', highlight: true, keyGreen: 'Visible', keyRed: 'Hidden' },
+    { title: 'Created Date', highlight: false },
     { title: 'Actions', highlight: false }
 ]);
 
@@ -114,7 +111,13 @@ const data: any[][] = [
         "Hidden",
         "2022-01-01"
     ]
-    
+
 ];
-        
+const icons = ref({
+    viewIcon: true,
+    deleteIcon: true,
+    editIcon: true
+}
+);
+
 </script>
